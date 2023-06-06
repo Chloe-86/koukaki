@@ -1,0 +1,436 @@
+html{
+  scroll-behavior: smooth;
+}
+.site-footer ul::after, #studio h2::before , #studio h2::after, .story__article::after,.site-footer::before, .site-footer::after, .fleur-orange, .flower, .purple-orchid, .pink-flower, .sunflower {
+  animation: rotate-center 20s linear infinite;
+ 
+}
+#studio{
+  overflow: hidden;
+  scroll-margin-top: 800px;
+}
+
+.rotate-center{
+  animation: rotate-center 20s linear infinite;
+}
+.fast-rotate{
+  animation: rotate-center 2s ease-in;
+}
+
+#logo{
+  position: absolute;
+ 
+}
+.alternate{
+  animation: translate 3s linear infinite alternate-reverse;
+}
+#place{
+  position: relative;
+  overflow:hidden;
+}
+#grosnuage{
+  position: absolute;
+  top: 65px;
+  left: 2400px;
+  filter: blur(10px);
+
+}
+#petitnuage{
+  position: absolute;
+  top: 245px;
+  left: 2166px;
+  filter: blur(10px);
+  
+}
+.translate-y {
+  transition: transform 0.3s ease-in-out; /* Ajustez la durée et l'effet selon votre préférence */
+}
+
+.story #place{
+  background-image: url('../assets/images/studio_bg_new.png');
+}
+.slide-in-left{
+  animation: slide-in-left 3s linear;
+}
+
+.slide-in-top{
+  animation: slide-in-top 3s linear;
+}
+.slide-in-top-parallax{
+  animation: slide-in-top-parallax 3s;
+}
+
+@keyframes translate{
+  0% {
+    transform: translateY(-45px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* fleur rotation animation */
+
+ @-webkit-keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+
+/* entree slide-in bottom */
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 3s ease-in-out;
+	        animation: slide-in-bottom 3s ease-in-out;
+}
+
+  @keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(200px);
+              transform: translateY(200px);
+              opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .slide-in-menu {
+    -webkit-animation: slide-in-menu 1s ease-in;
+            animation: slide-in-menu 1s ease-in;
+  }
+  
+    @keyframes slide-in-menu {
+      0% {
+        -webkit-transform: translateY(-1000px);
+                transform: translateY(-1000px);
+      
+      }
+      100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        opacity: 1;
+      }
+    }
+     
+  @keyframes slide-in-top-parallax {
+    0% {
+      -webkit-transform: translateY(-100px);
+              transform: translateY(-100px);
+      opacity: 0;
+      
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(50px);
+              transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+  /* nuage entree par la droite*/
+ @-webkit-keyframes slide-in-left {
+    /* 0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    } */
+    100% {
+      -webkit-transform: translateX(-371px);
+              transform: translateX(-371px);
+      opacity: 1;
+    }
+  }
+  .slide-in-left-fast{
+    animation: slide-in-left-fast ease-out 1s;
+  }
+
+ 
+/* carroussel */
+  html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 250px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+      
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    } 
+
+      .wrapper-footer-oscar{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20%;
+        width: 100%;
+       
+      }
+      .oscar {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          position: relative;
+          gap: 40px;
+      }
+      
+      .oscar_left-part {
+        position: relative;
+      }
+      
+       .oscar_left-part::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #FF5C00;
+        border-radius: 65px 88px 214px 82px / 39px 38px 101px 47px;
+        filter: blur(15px);
+        z-index: -1;
+        max-width: 643px;
+        max-height: 187px;
+      } 
+      
+      #oscar_text {
+        font-family: 'Quicksand', cursive;
+        font-size: clamp(1.5em, 1.8vw, 2vw);
+        color: #FFF5E9;
+        font-weight: 700;
+        line-height: 52px;
+        padding: 0 20px 20px 20px;
+        z-index: 100;
+        letter-spacing: -0,02em;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        max-width: 643px;
+        max-height: 187px;
+ } 
+
+/* menu nav */
+
+li{
+  list-style: none;
+}
+
+
+.nav-menu-me{
+  display: flex;
+  padding-left: 37%;
+  justify-content: space-between;
+  align-items: center;
+}
+#characters{
+  overflow: hidden;
+}
+#studio-header-footer{
+margin-top: 145px;
+}
+#site-navigation > .container-ul{
+  background-color:  #FFF5E9;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  height: calc(100vh - 80px);
+  z-index: -1;
+}
+
+#site-navigation > div.container-ul > ul > li > a{
+font-family: 'Roboto Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 3.33vw;
+line-height: 1.2;
+text-align: center;
+color: #000000;
+}
+.menu-toggle, .main-navigation.toggled ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#site-navigation > div.container-ul > ul > li > a:hover{
+    text-shadow: 0px 0px 14px #FF5C00;
+    color: #000000;
+}
+main{
+  overflow: hidden;
+}
+
+button.menu-toggle{
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+.main-navigation .line{
+  margin: 0 auto;
+  transition: 0.3s;
+}
+ul.nav-menu{
+  display: none;
+}
+
+/* position des fleurs */
+.sunflower{
+  position: absolute;
+}
+
+@media screen and (max-width: 667px){
+  .nav-menu-me{
+    padding-left: 20px;
+  }
+};
+
+    .site-footer ul{
+      position: absolute;
+      bottom: 0;
+    }
+    .site-footer ul{
+      margin-top: 400px;
+    }
+  .site-footer::after {
+    
+    position: absolute;
+    right: -4em;
+    bottom: 29.8em;
+}
+
+.custom-image-0{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.sunflower{
+  position: absolute;
+  top: 20px;
+  right: 254px;
+  content: url('../assets/images/Sunflower-y.png');
+  z-index: 1000;
+}
+
+.purple-orchid{
+  position: absolute;
+  top: 52px;
+  content: url('../assets/images/orchid copy.png');
+}
+
+.orange-cat{
+  position: absolute;
+  top: 704px;
+  left: 22px;
+  content: url('../assets/images/orange-cat.png');
+  animation: translate 3s linear infinite alternate-reverse;
+}
+
+.black-cat{
+  position: absolute;
+  left: 1063px;
+  top: 437px;
+  content: url('../assets/images/black-cat.png');
+  animation: translate 3s linear infinite alternate-reverse;
+}
+
+.flower{
+  position: absolute;
+  left: 203px;
+  top: 458px;
+  content: url('../assets/images/flower.png');
+}
+
+.pink-flower{
+  position: absolute;
+  top: 185px;
+  left: 1376px;
+  content: url('../assets/images/random_flower.png');
+  width: 80px;
+}
+
+
+.purple-cat{
+  position: absolute;
+  left: 181px;
+  top: 178px;
+  content: url('../assets/images/purple-cat.png');
+  animation: translate 3s linear infinite alternate-reverse;
+}
+.fleur-orange{
+  position: absolute;
+  bottom: -381px;
+  right: -303px;
+  content: url('../assets/images/hibiscus_footer.png');
+
+}
+
+#logo-menu{
+  width: 154px;
+  height: 96px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container-ul{
+  padding-top: 128px;
+  overflow: hidden;
+}
+
+#site-navigation > div.nav-menu-me > button > span:nth-child(1){
+  transform-origin: left center;
+}
+
+
+#site-navigation > div.nav-menu-me > button > span:nth-child(3){
+  transform-origin: left center;
+}
+
