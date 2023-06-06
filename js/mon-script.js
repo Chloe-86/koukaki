@@ -13,8 +13,10 @@ const studioSection = document.querySelectorAll("#studio");
 const placeSection = document.querySelectorAll("#place");
 const bannerSection = document.querySelectorAll(".banner");
 
+const video = document.querySelector("#primary > section.banner > video");
+console.log(video);
 // nav
-const mainNavigation = document.querySelector(".main-navigation");
+// const mainNavigation = document.querySelector(".main-navigation");
 const siteNavigation = document.getElementById("site-navigation");
 const button = siteNavigation.getElementsByTagName("button")[0];
 
@@ -40,6 +42,20 @@ function resizeF() {
     imagesMenu.removeAttribute("hidden");
     // window.addEventListener('resize', slideInleft());
   }
+}
+window.addEventListener("resize", () => {
+ if(window.innerWidth <= 668){
+  video.setAttribute('hidden', true);
+}else{
+  video.removeAttribute('hidden');
+}
+});
+
+//mediaqueries
+if (window.matchMedia("(max-width: 668px)").matches ) {
+ video.setAttribute('hidden', true);
+}else{
+  video.removeAttribute('hidden');
 }
 //creation du menu hamburger en js
 
@@ -78,6 +94,7 @@ button.addEventListener("click", function () {
     window.addEventListener("resize", () => {
       resizeF();
     });
+  
   }
 });
 
@@ -188,10 +205,10 @@ var swiper = new Swiper(".mySwiper", {
 // refaire ce nuage orange si j'ai le temps
 // nettoyer ce code
 
-let before = document.querySelector("#story h2");
+// let before = document.querySelector("#story h2");
 
-var style = window.getComputedStyle(before, "::after");
+// var style = window.getComputedStyle(before, "::after");
 
-// let after = document.querySelector('#story h2', ':after');
+// // let after = document.querySelector('#story h2', ':after');
 
-console.log(style);
+// console.log(style);

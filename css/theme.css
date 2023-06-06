@@ -1,7 +1,7 @@
 html{
   scroll-behavior: smooth;
 }
-.site-footer ul::after, #studio h2::before , #studio h2::after, .story__article::after,.site-footer::before, .site-footer::after, .fleur-orange, .flower, .purple-orchid, .pink-flower, .sunflower {
+.site-footer ul::after, #studio h2::before , #studio h2::after, .story__article::after,.site-footer::before, .site-footer::after, .fleur-orange, .flower, .purple-orchid, .pink-flower, .sunflower, #story > h2::after {
   animation: rotate-center 20s linear infinite;
  
 }
@@ -244,7 +244,7 @@ html{
       
       #oscar_text {
         font-family: 'Quicksand', cursive;
-        font-size: clamp(1.5em, 1.8vw, 2vw);
+        font-size: clamp(1.3em, 1.8vw, 2vw);
         color: #FFF5E9;
         font-weight: 700;
         line-height: 52px;
@@ -321,10 +321,6 @@ ul.nav-menu{
 }
 
 /* position des fleurs */
-.sunflower{
-  position: absolute;
-}
-
 @media screen and (max-width: 667px){
   .nav-menu-me{
     padding-left: 20px;
@@ -350,48 +346,52 @@ ul.nav-menu{
   top: 20px;
   right: 20px;
 }
+/* .images-menu{
+  position: relative;
+} */
 
 .sunflower{
   position: absolute;
-  top: 20px;
-  right: 254px;
+  top: 89px;
+  right: 185px;
   content: url('../assets/images/Sunflower-y.png');
   z-index: 1000;
 }
 
 .purple-orchid{
   position: absolute;
-  top: 52px;
+  top: 72px;
+  right: 1326px;
   content: url('../assets/images/orchid copy.png');
 }
 
 .orange-cat{
   position: absolute;
-  top: 704px;
-  left: 22px;
+  top: 827px;
+  left: 79px;
   content: url('../assets/images/orange-cat.png');
   animation: translate 3s linear infinite alternate-reverse;
 }
 
 .black-cat{
   position: absolute;
-  left: 1063px;
-  top: 437px;
+  right: 209px;
+  top: 550px;
   content: url('../assets/images/black-cat.png');
   animation: translate 3s linear infinite alternate-reverse;
 }
 
 .flower{
   position: absolute;
-  left: 203px;
-  top: 458px;
+  left: 213px;
+  bottom: 390px;
   content: url('../assets/images/flower.png');
 }
 
 .pink-flower{
   position: absolute;
-  top: 185px;
-  left: 1376px;
+  top: 395px;
+  left: 1396px;
   content: url('../assets/images/random_flower.png');
   width: 80px;
 }
@@ -399,8 +399,8 @@ ul.nav-menu{
 
 .purple-cat{
   position: absolute;
-  left: 181px;
-  top: 178px;
+  left: 267px;
+  top: 161px;
   content: url('../assets/images/purple-cat.png');
   animation: translate 3s linear infinite alternate-reverse;
 }
@@ -434,3 +434,16 @@ ul.nav-menu{
   transform-origin: left center;
 }
 
+@media screen and (max-width:668px){
+  #studio h2, #place > div > h3, #characters > div > h3, #story > h2{
+    font-size: 2rem;
+  }
+  .story #place > div{
+    align-items: center;
+  }
+  .oscar_left-part {
+    position: relative;
+    margin: 20px;
+}
+  
+}

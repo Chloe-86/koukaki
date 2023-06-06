@@ -38,28 +38,29 @@
                     </button>
                 </div>
                 <div class="container-ul" hidden>
-                    <img id="logo-menu" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo">
-                    <ul>
-                        <li><a href="#story">Histoire</a></li>
-                        <li><a href="#characters">Personnages</a></li>
-                        <li><a href="#place">Lieu</a></li>
-                        <li><a href="#studio">Studio Koukaki</a></li>
-                        <li id="studio-header-footer">
-                            <a>
-                                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/studio.png'; ?> " alt="nom du studio koukaki">
-                            </a>
-                        </li>
-                    </ul>
-                    <div class='images-menu'hidden>
-                        <div class="sunflower"></div>
-                        <div class="purple-orchid"></div>
-                        <div class="orange-cat"></div>
-                        <div class="black-cat"></div>
-                        <div class="flower"></div>
-                        <div class="pink-flower"></div>
-                        <div class="purple-cat"></div>
-                        <div class="fleur-orange"></div>
-                    </div>
+                    <div class='images-menu' hidden>
+                            <div class="sunflower"></div>
+                            <div class="purple-orchid"></div>
+                            <div class="orange-cat"></div>
+                            <div class="black-cat"></div>
+                            <div class="flower"></div>
+                            <div class="pink-flower"></div>
+                            <div class="purple-cat"></div>
+                            <div class="fleur-orange"></div>
+                        </div>
+                        <img id="logo-menu" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo">
+                        <ul>
+                            <li><a href="#story">Histoire</a></li>
+                            <li><a href="#characters">Personnages</a></li>
+                            <li><a href="#place">Lieu</a></li>
+                            <li><a href="#studio">Studio Koukaki</a></li>
+                            <li id="studio-header-footer">
+                                <a>
+                                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/studio.png'; ?> " alt="nom du studio koukaki">
+                                </a>
+                            </li>
+                        </ul>
+                       
                 </div>
 
 
