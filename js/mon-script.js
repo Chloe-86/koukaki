@@ -1,6 +1,6 @@
 const grosNuage = document.querySelector("#grosnuage");
 const petitNuage = document.querySelector("#petitnuage");
-// const trespetitnuage = document.querySelector("#trespetitnuage");
+
 
 const videoChat = document.querySelector("#videochat");
 const carroussel = document.querySelector(".carroussel-wrapper");
@@ -14,7 +14,7 @@ const placeSection = document.querySelectorAll("#place");
 const bannerSection = document.querySelectorAll(".banner");
 
 const video = document.querySelector("#primary > section.banner > video");
-console.log(video);
+
 // nav
 // const mainNavigation = document.querySelector(".main-navigation");
 const siteNavigation = document.getElementById("site-navigation");
@@ -27,11 +27,19 @@ let span3 = document.querySelector("#site-navigation > div.nav-menu-me > button 
 const menuDown = document.querySelector("#site-navigation > .container-ul");
 const menuLi = document.querySelectorAll("#site-navigation > div.container-ul > ul > li > a");
 
-const fleur1 = document.querySelector(".story__article > p");
+// const fleur1 = document.querySelector(".story__article > p");
 const imagesMenu = document.querySelector(".images-menu");
 
 const logoMenu = document.querySelector("#logo-menu");
 const p = document.querySelectorAll("p");
+
+const flower1 = document.querySelector('#story > h2');
+const flower2 = document.querySelector('#studio > h2');
+const flower3 = document.querySelector('#colophon');
+const flower4 = document.querySelector('#story > article.story__article');
+
+const arrFlowers = [flower1, flower2, flower3, flower4];
+
 
 //------------------------------------------BUTTON----------------------------------------
 function resizeF() {
@@ -61,15 +69,18 @@ if (window.matchMedia("(max-width: 668px)").matches ) {
 
 // nettoyer ce code ci dessous !!! faire des functions
 button.addEventListener("click", function () {
+  function hideMenu (){
+    imagesMenu.setAttribute("hidden", true);
+    menuDown.setAttribute("hidden", true);
+    logoMenu.setAttribute("hidden", true);
+  }
   if (button.getAttribute("aria-expanded") === "true") {
     // menu ouvert
     span1.style.transform = "rotate(0deg)";
     span2.style.visibility = "visible";
     span3.style.transform = "rotate(0deg)";
     menuDown.classList.remove("slide-in-menu");
-    imagesMenu.setAttribute("hidden", true);
-    menuDown.setAttribute("hidden", true);
-    logoMenu.setAttribute("hidden", true);
+    hideMenu();
   } else {
     span1.style.transform = "rotate(45deg)";
     span2.style.visibility = "hidden";
@@ -79,9 +90,7 @@ button.addEventListener("click", function () {
     imagesMenu.removeAttribute("hidden");
     menuLi.forEach((element) => {
       element.addEventListener("click", (e) => {
-        imagesMenu.setAttribute("hidden", true);
-        menuDown.setAttribute("hidden", true);
-        logoMenu.setAttribute("hidden", true);
+        hideMenu();
         span1.style.transform = "rotate(0deg)";
         span2.style.visibility = "visible";
         span3.style.transform = "rotate(0deg)";
@@ -136,54 +145,22 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-//------------------------------------------SCROLL-----------------------------------------------
 
-// window.addEventListener("scroll", () => {
-//   //création d'un % au scroll
-//   let scrollValueY =
-//     (window.innerHeight + window.scrollY) / document.body.offsetHeight;
-
-// // fonction de slide
-// function slideInLeft() {
-//   grosNuage.classList.add("slide-in-left");
-//   petitNuage.classList.add("slide-in-left");
-// }
-// function removeSlideInleft() {
-//   grosNuage.classList.remove("slide-in-left");
-//   petitNuage.classList.remove("slide-in-left");
-
-// }
-//   if (scrollValueY > 2.5 && scrollValueY < 3.8 ) {
-//     slideInLeft();
-//   } else {
-//     removeSlideInleft();
-//   }
-// });
-
+// scroll des nuages
 window.addEventListener("scroll", () => {
-  // Récupérer la valeur de défilement en pixels
+  // voici la valeur de défilement en pixels
   let scrollValue = window.scrollY;
 
   // Calculer la valeur de déplacement horizontal en fonction du défilement
-  let translateValue = scrollValue * 0.7; // Ajustez ce facteur selon votre préférence
+  let translateValue = scrollValue * 0.7; // le facteur de multiplication
 
-  // if (window.innerWidth === middleWidth) {
-  //  if(window.innerwidth)
-  // Appliquer la translation aux éléments d'image
+  // passer la valeur pour lui appliquer le decalage
   grosNuage.style.transform = `translateX(-${translateValue}px)`;
   petitNuage.style.transform = `translateX(-${translateValue}px)`;
 
-  grosNuage.getBoundingClientRect();
-
-  // let translateValueY = scrollValue * 0.05; // Ajustez le facteur multiplicatif selon votre préférence
-
-  // p.forEach(element => {
-  //   element.style.transform = `translateY(-${translateValueY}px)`;
-  //   element.classList.add('translate-y');
-  // });
 });
 
-//carroussel de personnages
+//----------------------------carroussel de personnages------------------------------------------------
 var swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   grabCursor: true,
@@ -198,17 +175,33 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-// a faire
-// ajouter les classes d'anim au images menu
-//  verifier les ancres?
-// faire le scroll rapide des fleurs?  pas possible de cibles pseudo elements
+//-------------------------------le scroll rapide des fleurs -----------------------------------------------
+
+function handleScroll(animationDuration) {
+  for (let index = 0; index < arrFlowers.length; index++) {
+    arrFlowers[index].style.setProperty('--animation-duration', animationDuration); 
+  }
+    
+  };
+//initialise la variable de defilement a false
+  let isScrolling = false;
+
+window.addEventListener('scroll', function() {
+ // quand il y a scroll passe a true
+  isScrolling = true;
+});
+//le setInterval verifie tt les 100 ms si il est a true lui passe la valeur 1s
+setInterval(function() {
+  if (isScrolling) {
+    handleScroll('1s');
+    isScrolling = false; // Réinitialise 
+  } else {
+    //si il y a pas de scroll alors remets a 21s
+    handleScroll('21s');
+  }
+}, 100);
+
 // refaire ce nuage orange si j'ai le temps
-// nettoyer ce code
+//verifier les const inutilisés
+// nettoyer le code...
 
-// let before = document.querySelector("#story h2");
-
-// var style = window.getComputedStyle(before, "::after");
-
-// // let after = document.querySelector('#story h2', ':after');
-
-// console.log(style);

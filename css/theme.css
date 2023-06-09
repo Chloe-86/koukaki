@@ -1,9 +1,11 @@
 html{
   scroll-behavior: smooth;
 }
+:root {
+  --animation-duration: 21s;
+}
 .site-footer ul::after, #studio h2::before , #studio h2::after, .story__article::after,.site-footer::before, .site-footer::after, .fleur-orange, .flower, .purple-orchid, .pink-flower, .sunflower, #story > h2::after {
-  animation: rotate-center 20s linear infinite;
- 
+  animation: rotate-center var(--animation-duration) linear infinite;
 }
 #studio{
   overflow: hidden;
@@ -11,7 +13,7 @@ html{
 }
 
 .rotate-center{
-  animation: rotate-center 20s linear infinite;
+  animation: rotate-center var(--animation-duration) linear infinite;
 }
 .fast-rotate{
   animation: rotate-center 2s ease-in;
