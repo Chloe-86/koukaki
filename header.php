@@ -60,11 +60,10 @@
                                 </a>
                             </li>
                         </ul>
-                       
                 </div>
 
 
             </nav><!-- #site-navigation -->
         </header><!-- #masthead -->
         <?php
-        get_template_part('template-parts/front-page');
+        // get_template_part('template-parts/front-page');
