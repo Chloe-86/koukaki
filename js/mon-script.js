@@ -56,7 +56,6 @@ button.addEventListener("click", function () {
     logoMenu.setAttribute("hidden", true);
   }
   if (button.getAttribute("aria-expanded") === "true") {
-    // menu ouvert
     span1.style.transform = "rotate(0deg)";
     span2.style.visibility = "visible";
     span3.style.transform = "rotate(0deg)";
@@ -69,17 +68,9 @@ button.addEventListener("click", function () {
     menuDown.classList.add("slide-in-menu");
     menuDown.removeAttribute("hidden");
     imagesMenu.removeAttribute("hidden");
-    menuLi.forEach((element) => {
-      element.addEventListener("click", (e) => {
-        hideMenu();
-        span1.style.transform = "rotate(0deg)";
-        span2.style.visibility = "visible";
-        span3.style.transform = "rotate(0deg)";
-      });
       menuLi.forEach((element) => {
         element.classList.add("slide-in-top-menu");
       });
-    });
     resizeF();
     window.addEventListener("resize", () => {
       resizeF();
@@ -124,20 +115,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// scroll des nuages
-window.addEventListener("scroll", () => {
-  // voici la valeur de défilement en pixels
-  let scrollValue = window.scrollY;
-  // Calculer la valeur de déplacement horizontal en fonction du défilement
-  let translateValue = scrollValue * 0.7; // le facteur de multiplication
-  // passer la valeur pour lui appliquer le decalage
-  grosNuage.style.transform = `translateX(-${translateValue}px)`;
-  petitNuage.style.transform = `translateX(-${translateValue}px)`;
-});
 
 //----------------------------carroussel de personnages------------------------------------------------
 
-var swiper = new Swiper(".mySwiper", {
+let swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   grabCursor: true,
   centeredSlides: true,
@@ -150,29 +131,29 @@ var swiper = new Swiper(".mySwiper", {
     slideShadows: false,
   },
 });
-
-//-------------------------------le scroll rapide des fleurs -----------------------------------------------
-
+// ------------------------------------scroll des nuages---------------------------------------------------
+function scrollNuage(){
+  let scrollValue = window.scrollY;
+  // Calculer la valeur de déplacement horizontal en fonction du défilement
+  let translateValue = scrollValue * 0.7; // le facteur de multiplication
+  // passer la valeur pour lui appliquer le decalage
+  grosNuage.style.transform = `translateX(-${translateValue}px)`;
+  petitNuage.style.transform = `translateX(-${translateValue}px)`;
+}
+//-------------------------------le scroll rapide des fleurs-----------------------------------------------
 function handleScroll(animationDuration) {
   for (let index = 0; index < arrFlowers.length; index++) {
     arrFlowers[index].style.setProperty("--animation-duration", animationDuration);
   }
 }
-//initialise la variable de defilement a false
-let isScrolling = false;
-
-window.addEventListener("scroll", function () {
-  // quand il y a scroll passe a true
-  isScrolling = true;
-});
-
 //le setInterval verifie tt les 100 ms si il est a true lui passe la valeur 1s
 setInterval(function () {
-  if (isScrolling) {
-    handleScroll("1s");
-    isScrolling = false; // Réinitialise
-  } else {
-    //si il y a pas de scroll alors remets a 21s
-    handleScroll("21s");
-  }
+  handleScroll("21s");
 }, 100);
+
+// declenchement d'evenements au scroll
+window.addEventListener("scroll", () => {
+  scrollNuage();
+  handleScroll("1s");
+});
+
